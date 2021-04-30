@@ -12,8 +12,8 @@ test('Test getRole(), expect Manager', () => {
     expect(manager.getRole()).toBe(value)
 })
 
-test('test getOffice()', () => {
+test('test getOfficeNumber()', () => {
     const office = 151
     const manager = new Manager('Jared', 251, 'a@l.com', office)
-    expect(manager.getOffice()).toBe(office)
+    expect(manager.getOfficeNumber()).toBe(office)
 })

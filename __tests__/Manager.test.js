@@ -8,7 +8,7 @@ test('Set office number', () => {
 
 test('Test getRole(), expect Manager', () => {
     const value = 'Manager'
-    const manager = new Intern('Jared', 251, 'a@l.com', 151)
+    const manager = new Manager('Jared', 251, 'a@l.com', 151)
     expect(manager.getRole()).toBe(value)
 })
 

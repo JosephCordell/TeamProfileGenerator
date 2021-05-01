@@ -6,22 +6,20 @@ const path = require('path')
 const fs = require('fs')
 const teamQs = require('./lib/teamQs')
 
-const output = path.resolve(__dirname, "output")
+const output = path.resolve(__dirname, "teamHTML")
 const outputPath = path.join(output, 'team.html')
 
-const createPage = require('./lib/pageTemplate.js')
+const createPage = require('./lib/webpage.js')
 const { Console } = require('console')
 
-const team = []
-const idArray = []
+const cards = []
 
  const makeManager = async () => {
     console.log('Time to create your team website')
     await inquirer.prompt(teamQs.managerQs)
         .then(response => {
             const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber)
-            team.push(manager)
-            idArray.push(response.managerId)
+            cards.push(manager.createCard())
             // makeTeam()
             console.log(manager)
         })
@@ -48,9 +46,7 @@ const addEngineer = async() => {
     await inquirer.prompt(teamQs.EngineerQs)
     .then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGitHub)
-        console.log(engineer)
-        team.push(engineer)
-        idArray.push(response.engineerId)
+        cards.push(engineer.createCard())
         teamMembers()
     })
 }
@@ -59,14 +55,14 @@ const addIntern = async () => {
     await inquirer.prompt(teamQs.internQs)
     .then (response => {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
-        team.push(intern)
-        idArray.push(response.internId)
+        cards.push(intern.createCard())
         teamMembers()
     })
 }
 
 const createWebsite = () => {
-    console.log(team)
-    fs.writeFileSync(output, createPage(team), 'utf-8')
+
+
+    fs.writeFileSync(outputPath, createPage(cards.join('')), 'utf-8')
 }
 makeManager()

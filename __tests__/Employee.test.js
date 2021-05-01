@@ -44,5 +44,5 @@ test('Test getEmail', () => {
 test('Test getRole(), expect Employee', () => {
     const value = 'Employee'
     const employee = new Employee('Jared', 151, "a@l.com")
-    expect(employee.getRole().toBe(value))
+    expect(employee.getRole()).toBe(value)
 })

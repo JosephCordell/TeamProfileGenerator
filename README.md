@@ -29,6 +29,7 @@ npm install
 node index.js
 ```
 2. Provide answers for the prompted questions
+[Video Walkthrough](https://youtu.be/u8dqBJos49Q)
 
 3.  An HTML file will be be generated in the teamHTML folder named team.html. Style sheet is also in the same folder.
 

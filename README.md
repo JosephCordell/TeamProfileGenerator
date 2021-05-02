@@ -33,6 +33,7 @@ node index.js
 
 3.  An HTML file will be be generated in the teamHTML folder named team.html. Style sheet is also in the same folder.
 
+![picture of final result](./assets/images/TeamGenerator.png)
 
 ## 3 License 
     Copyright © 2021 Joseph Cordell
